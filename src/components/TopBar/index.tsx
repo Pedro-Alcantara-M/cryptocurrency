@@ -6,6 +6,7 @@ import {
   Typography,
   Container,
   Button,
+  Link
 } from "@mui/material";
 // import useTheme from "@mui/material";
 import Logo from "@assets/logo.svg";
@@ -15,10 +16,6 @@ const pages = ["About us", "Top Cryptos"];
 export const TopBar = () => {
   //const theme = useTheme();
   const [, setAnchorElNav] = useState<null | HTMLElement>(null);
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
 
   return (
     <AppBar
@@ -37,10 +34,10 @@ export const TopBar = () => {
             />
 
             <Box sx={{ display: "flex" }}>
-              {pages.map((page) => (
-                <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2 }}>
+              {pages.map((page, index) => (
+                <Link key={page} href={`#section${index+1}`} sx={{ my: 2 }}>
                   {page}
-                </Button>
+                </Link>
               ))}
             </Box>
           </Box>

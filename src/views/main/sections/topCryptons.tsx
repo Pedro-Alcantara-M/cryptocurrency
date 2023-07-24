@@ -31,7 +31,7 @@ const TopCryptoSection = () => {
   }, []);
 
   return (
-    <Container sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+    <Container id="section2" sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
       <Typography variant="h3" sx={{ alignSelf: "center", pt: "7.5em", fontWeight: "bold" }}>
         {" "}
         Top Cryptos

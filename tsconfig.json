@@ -14,8 +14,6 @@
      "@services/*": ["./src/services/*"],
      "@theme/*": ["./src/theme/*"],
     },
-
-
     
     /* Bundler mode */
     "moduleResolution": "bundler",
