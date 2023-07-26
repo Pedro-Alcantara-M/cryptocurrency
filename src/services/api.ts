@@ -1,12 +1,18 @@
 import axios from 'axios';
 
-const { VITE_API_URL, VITE_API_KEY } = import.meta.env;
+const { VITE_API_URL, VITE_USER_API_URL } = import.meta.env;
 
-const api = axios.create({
+export const apiCoin = axios.create({
   baseURL: VITE_API_URL,
   headers: {
-    'X-CoinAPI-Key': VITE_API_KEY
+    Accept: 'application/json',
   },
 });
 
-export default api;
+export const apiUsers = axios.create({
+  baseURL: VITE_USER_API_URL,
+  headers: {
+    Accept: 'application/json',
+  },
+});
+

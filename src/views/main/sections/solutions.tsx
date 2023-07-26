@@ -1,7 +1,8 @@
-import { Box, Container, Typography, Button } from "@mui/material";
+import { Box, Container, Typography, Button, useTheme } from "@mui/material";
 import CoinIcon from "@assets/cryptoCurrencyIcon.svg";
 
 export const SolutionSection = () => {
+  const theme = useTheme();
   return (
     <Container
       sx={{
@@ -9,7 +10,8 @@ export const SolutionSection = () => {
         justifyContent: "center",
         mt: "7,5em",
         pb: "8.125em",
-        background: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F7F7F7 100%)'
+        background:
+          "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F7F7F7 100%)",
       }}
     >
       <Box maxWidth="60%">
@@ -27,7 +29,14 @@ export const SolutionSection = () => {
           >
             <img src={CoinIcon} alt="A crypton coin" />
 
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            <Typography
+              variant="body1"
+              color="primary.main"
+              sx={{
+                fontWeight: "bold",
+                color: `${theme.palette.primary.main} !important`,
+              }}
+            >
               For your company
             </Typography>
             <Typography variant="h4" sx={{ fontWeight: "bold" }}>
@@ -51,7 +60,13 @@ export const SolutionSection = () => {
           >
             <img src={CoinIcon} alt="A crypton coin" />
 
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            <Typography
+              variant="body1"
+              sx={{
+                fontWeight: "bold",
+                color: `${theme.palette.primary.main} !important`,
+              }}
+            >
               For your company
             </Typography>
             <Typography variant="h4" sx={{ fontWeight: "bold" }}>
@@ -78,7 +93,13 @@ export const SolutionSection = () => {
           >
             <img src={CoinIcon} alt="A crypton coin" />
 
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            <Typography
+              variant="body1"
+              sx={{
+                fontWeight: "bold",
+                color: `${theme.palette.primary.main} !important`,
+              }}
+            >
               For your company
             </Typography>
             <Typography variant="h4" sx={{ fontWeight: "bold" }}>
@@ -102,7 +123,13 @@ export const SolutionSection = () => {
           >
             <img src={CoinIcon} alt="A crypton coin" />
 
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            <Typography
+              variant="body1"
+              sx={{
+                fontWeight: "bold",
+                color: `${theme.palette.primary.main} !important`,
+              }}
+            >
               For your company
             </Typography>
             <Typography variant="h4" sx={{ fontWeight: "bold" }}>
@@ -131,7 +158,11 @@ export const SolutionSection = () => {
         <Box sx={{ display: "flex", gap: "2em", mt: "5em" }}></Box>
         <Typography
           variant="h5"
-          sx={{ fontWeight: "bold", alignSelf: "self-start" }}
+          sx={{
+            fontWeight: "bold",
+            alignSelf: "self-start",
+            color: `${theme.palette.primary.main} !important`,
+          }}
         >
           Lorem ipsum
         </Typography>

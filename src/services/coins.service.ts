@@ -1,33 +1,18 @@
-import api from "@services/api";
+import { apiCoin } from "@services/api";
 import { ICoinResp, CryptoData } from "./interface";
 
-
-export const getCoins = (): Promise<ICoinResp> => {
+export const getCoins = async (params: {
+  per_page: number;
+}): Promise<ICoinResp> => {
   const resp: ICoinResp = {
     data: null,
     status: null,
   };
 
-  return api
-    .get<CryptoData[]>(
-      "assets",
-      {}
-    )
+  return apiCoin
+    .get<CryptoData[]>("coins/markets", { params })
     .then((preResp) => {
-      const sortedCryptos = preResp.data.sort(
-        (a, b) => b.volume_1day_usd - a.volume_1day_usd
-      );
-      const popularCryptos = sortedCryptos.slice(0, 10);
-
-      const formattedData = popularCryptos.map((crypto) => ({
-        asset_id: crypto.asset_id,
-        name: crypto.name,
-        price: crypto.price_usd,
-        change: crypto.volume_1day_usd,
-        idIcon: crypto.id_icon,
-      }));
-
-      resp.data = formattedData;
+      resp.data = preResp.data;
       resp.status = preResp.status;
       return resp;
     })

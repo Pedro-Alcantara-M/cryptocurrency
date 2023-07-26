@@ -4,6 +4,7 @@ interface CustomTheme extends PaletteOptions {
   palette: {
     primary: {
       main: string;
+      light: string;
       100: string;
       200: string;
       300: string;
@@ -15,6 +16,7 @@ interface CustomTheme extends PaletteOptions {
     };
     secondary: {
       main: string;
+      light: string;
       100: string;
       200: string;
       300: string;
@@ -24,8 +26,9 @@ interface CustomTheme extends PaletteOptions {
       800: string;
       900: string;
     };
-    tertiary: {
+    success: {
       main: string;
+      contrastText: string;
       100: string;
       200: string;
       300: string;
@@ -35,8 +38,9 @@ interface CustomTheme extends PaletteOptions {
       800: string;
       900: string;
     };
-    quaternary: {
+    error: {
       main: string;
+      contrastText: string;
       100: string;
       200: string;
       300: string;
@@ -54,6 +58,7 @@ const themeOptions: CustomTheme = {
     palette: {
       primary: {
         main: '#FBAB34',
+        light: '#FFE1B5',
         100: '#FFF6E8',
         200: '#FFE1B5',
         300: '#FFCD82',
@@ -65,6 +70,7 @@ const themeOptions: CustomTheme = {
       },
       secondary: {
         main: '#8C8A97',
+        light: '#E0DEEA',
         100: '#F6F6F6',
         200: '#F4F3F8',
         300: '#E0DEEA',
@@ -74,8 +80,9 @@ const themeOptions: CustomTheme = {
         800: '#4E4B59',
         900: '#33303E',
       },
-      tertiary: {
+      success: {
         main: '#1BD171',
+        contrastText: '#149E55',
         100: '#E8FAF1',
         200: '#D1F6E3',
         300: '#A4EDC6',
@@ -85,8 +92,9 @@ const themeOptions: CustomTheme = {
         800: '#0E6B3A',
         900: '#07381E',
       },
-      quaternary: {
+      error: {
         main: '#EC3237',
+        contrastText: '#A12226',
         100: '#FFF2F3',
         200: '#FFCFD0',
         300: '#FF9497',
@@ -101,37 +109,30 @@ const themeOptions: CustomTheme = {
       fontFamily: 'Roboto, sans-serif',
       h1: {
         fontSize: '3em',
-        lineHeight: 3.5,
         letterSpacing: '-1px',
       },
       h2: {
         fontSize: '2.5em',
-        lineHeight: 3,
         letterSpacing: '-1px',
       },
       h3: {
         fontSize: '2em',
-        lineHeight: 2.5,
         letterSpacing: '0px',
       },
       h4: {
         fontSize: '1.5em',
-        lineHeight: 2,
         letterSpacing: '0px',
       },
       h5: {
         fontSize: '1.25em',
-        lineHeight: 1.5,
         letterSpacing: '0px',
       },
       body1: {
         fontSize: '1em',
-        lineHeight: 1.25,
         letterSpacing: '0px',
       },
       subtitle1: {
         fontSize: '0.875em',
-        lineHeight: 1,
         letterSpacing: '0px',
       },
       subtitle2: {

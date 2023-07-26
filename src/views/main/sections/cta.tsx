@@ -1,17 +1,18 @@
-import { Box, Container, Typography, Button } from "@mui/material";
+import { Box, Container, Typography, Button, useTheme } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ImageCarousel1 from "@assets/carousel1.svg"
 import ImageCarousel2 from "@assets/carousel2.svg"
 
 export const CTASection = () => {
+  const theme = useTheme()
   const labels = ["Cryptos", "NFTs", "Games"];
   return (
-    <Container sx={{display: 'flex', mt: "6,25em", mb: '3,5em' }}>
-      <Box maxWidth="50%">
-        <Typography variant="h1" sx={{ fontWeight: "bold" }}>
+    <Container sx={{display: 'flex', mb: '3.5em' }}>
+      <Box maxWidth="50%"  mt="10em">
+        <Typography variant="h1" sx={{ fontWeight: "bold", color: `${theme.palette.primary.main} !important` }}>
           Lorem ipsum dolor sit amet, consectetur
         </Typography>
-        <Typography variant="h5">
+        <Typography variant="h5" mt="1.5em">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
           purus sit amet luctus venenatis, lectus magna fringilla urna,
           porttitor
@@ -53,9 +54,9 @@ export const CTASection = () => {
           ))}
         </Box>
       </Box>
-      <Box sx={{display:'flex', maxWidth:"50%", visibility: 'visible', position: 'relative' }}>
+      <Box  mt='6.25em' sx={{display:'flex', maxWidth:"50%", visibility: 'visible', position: 'relative' }}>
         <img src={ImageCarousel1} alt="A happy girl with tablet" />
-        <img src={ImageCarousel2} alt="A happy guy with cellphone" style={{position: 'absolute', left: '340px', bottom: '65px'}}/>
+        <img src={ImageCarousel2} alt="A happy guy with cellphone" style={{position: 'absolute', left: '340px', bottom: '18px'}}/>
       </Box>
      
     </Container>

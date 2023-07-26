@@ -7,7 +7,7 @@ import TopCryptoSection from "./sections/topCryptons"
 import Waves from '@assets/waves.svg'
 
 
-const MainView = () => {
+const LandingPage = () => {
 
   return (
     <>
@@ -22,4 +22,4 @@ const MainView = () => {
   )
 }
 
-export default MainView
+export default LandingPage

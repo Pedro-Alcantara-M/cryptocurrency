@@ -1,4 +1,4 @@
-import { Container, Box, Typography, TextField, Button } from "@mui/material";
+import { Container, Box, Typography } from "@mui/material";
 import Logo from '@assets/logo.svg'
 
 export const FooterSection = () => {

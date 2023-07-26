@@ -30,28 +30,49 @@
     size_precision: number
   } */
 
-  export interface ICoin {
-    [x: string]: any;
-    asset_id?: string
-    name?: string
-    price?: number
-    change?: number
-    id_icon?: string
-    volume_1day_usd: number
-    price_usd?: number
-  } 
+export interface ICoin {
+  [x: string]: any;
+  name?: string;
+  image?: string;
+  symbol?: string;
+  current_price?: number;
+  market_cap_change_percentage_24h?: number;
+}
 
-  export interface ICoinResp {
-    data: ICoin | null;
-    status: number | null;
-  }
+export interface ICoinResp {
+  data: ICoin | null;
+  status: number | null;
+}
 
-  export interface CryptoData {
-    asset_id?: string
-    name?: string
-    price?: number
-    change?: number
-    id_icon?: string
-    volume_1day_usd: number
-    price_usd?: number
-  }
+export interface CryptoData {
+  asset_id?: string;
+  name?: string;
+  price?: number;
+  change?: number;
+  id_icon?: string;
+  volume_1day_usd: number;
+  price_usd?: number;
+}
+
+export interface IUser {
+  id?: number;
+  name?: string;
+  email?: string;
+  password?: string;
+  photo?: string;
+}
+
+export interface ILoginResp {
+  data: IUser[] | null;
+  status: number | null;
+}
+
+export interface IUsersResp {
+  data: IUser[] | null;
+  status: number | null;
+}
+
+export interface ICreateUserResp {
+  data: IUser | null;
+  status: number | null;
+}

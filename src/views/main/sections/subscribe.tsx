@@ -1,17 +1,26 @@
-import { Container, Box, Typography, TextField, Button } from "@mui/material";
+import { Container, Box, Typography, TextField, Button, useTheme } from "@mui/material";
+import waves from "@assets/subscribebackground.svg";
 
 export const SubscribeSection = () => {
+  const theme = useTheme()
   return (
     <Container
       sx={{
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
-        height: "25,75em",
+        height: "25.75em",
+        position: "relative",
         background:
           "linear-gradient(97.85deg, #FBAB34 -5.87%, #AD721A 118.06%)",
       }}
     >
+      <img
+        src={waves}
+        alt="three waves of background"
+        width="100%"
+        style={{ position: "absolute", bottom: 0, left: 0 }}
+      />
       <Box
         sx={{
           display: "flex",
@@ -24,17 +33,19 @@ export const SubscribeSection = () => {
       >
         <Typography
           variant="h4"
-          sx={{ fontWeight: "bold", alignSelf: "self-start" }}
+          color={`${theme.palette.primary.light} !important`}
+          sx={{ fontWeight: "bold", alignSelf: "self-start", mb: '0.25em'  }}
         >
           Lorem ipsum
         </Typography>
         <Typography
           variant="h1"
-          sx={{ fontWeight: "bold", alignSelf: "self-start" }}
+          color="white !important"
+          sx={{ fontWeight: "bold", alignSelf: "self-start", mb: '1em' }}
         >
           Lorem ipsum
         </Typography>
-        <Typography variant="body1">
+        <Typography variant="body1" color="white !important">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
           purus sit amet luctus venenatis, lectus magna fringilla urna,
           porttitor
@@ -46,21 +57,23 @@ export const SubscribeSection = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: 'center',
+          justifyContent: "center",
           width: "24em",
           height: "10.7em !important",
           pl: "2em",
         }}
       >
+        <Typography variant="subtitle2" alignSelf="start" color="white !important" mb="0.5em">Email</Typography>
         <TextField
-          value={"test"}
-          placeholder="email"
+          placeholder="Email"
           sx={{
             backgroundColor: "white",
-            /*  height: '2.625em', */
+            borderRadius: '8px',
             width: "100%",
             boxShadow: "0px 12px 24px 0px #0000001A",
-            borderRadius: "4px",
+            '& .MuiInputBase-root': {
+              height: '3em',
+            }
           }}
         />
 
