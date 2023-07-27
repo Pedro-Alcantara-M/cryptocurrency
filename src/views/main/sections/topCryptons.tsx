@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getCoins } from "@services/coins.service";
 import { ICoinResp, ICoin } from "@src/services/interface";
 import {
@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 import { StyledTableCell, StyledTableRow } from "./styles";
 import { formatToUSD } from "@src/utils";
+import { GeneralContext } from "@src/context/generalContext";
 
 const INITIAL_QUERY = {
   per_page: 10,
@@ -25,27 +26,21 @@ const INITIAL_QUERY = {
 
 const TopCryptoSection = () => {
   const theme = useTheme();
+  const { storeCoins, coins } = useContext(GeneralContext);
   const [isLoading, setIsLoading] = useState(false);
-  const [coins, setCoins] = useState<ICoinResp | null>(null);
 
   const firstRender = async () => {
     setIsLoading(true);
     const response = await getCoins(INITIAL_QUERY);
-    localStorage.setItem("coins", JSON.stringify(response));
-    if (response) {
-      setCoins(response);
+
+    if (response && response.data) {
+      storeCoins(response.data);
     }
     setIsLoading(false);
   };
 
   useEffect(() => {
-    const coins = localStorage.getItem("coins");
-    if (coins) {
-      const dataObject = JSON.parse(coins);
-      setCoins(dataObject);
-    } else {
-      firstRender();
-    }
+    firstRender();
   }, []);
 
   return (
@@ -55,7 +50,7 @@ const TopCryptoSection = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        backgroundColor: 'white',
+        backgroundColor: "white",
         p: "7.5em 0em",
       }}
     >
@@ -75,9 +70,8 @@ const TopCryptoSection = () => {
           </TableHead>
           <TableBody>
             {coins &&
-              coins.data &&
-              coins.data.length > 0 &&
-              coins?.data?.map((row: ICoin, index: number) => (
+              coins.length > 0 &&
+              coins?.map((row: ICoin, index: number) => (
                 <StyledTableRow key={`${row.name}${index}`}>
                   <StyledTableCell component="th" scope="row">
                     <Typography>{index + 1}</Typography>
@@ -92,7 +86,7 @@ const TopCryptoSection = () => {
                         alt={`Logo ${row.name}`}
                       />
                       <Typography variant="body1">
-                        {`${row.id_icon || ""}  ${row.name} `}{" "}
+                        {`${row.name} `}{" "}
                         <Typography
                           variant="body1"
                           sx={{
@@ -109,7 +103,7 @@ const TopCryptoSection = () => {
                   <StyledTableCell>
                     {
                       <Typography variant="body1">
-                        {formatToUSD(Number(row.current_price))}
+                        {formatToUSD(Number(row.price))}
                       </Typography>
                     }
                   </StyledTableCell>
@@ -117,16 +111,13 @@ const TopCryptoSection = () => {
                   <StyledTableCell
                     sx={{
                       color:
-                        row?.market_cap_change_percentage_24h &&
-                        row?.market_cap_change_percentage_24h > 0
+                        row?.change && row?.change > 0
                           ? "success.700"
                           : "error.700",
                     }}
                   >
-                    {row.market_cap_change_percentage_24h &&
-                      row.market_cap_change_percentage_24h > 0 &&
-                      "+"}
-                    {row.market_cap_change_percentage_24h?.toFixed(2)}%
+                    {row.change && row.change > 0 && "+"}
+                    {row.change?.toFixed(2)}%
                   </StyledTableCell>
                   <StyledTableCell>
                     <Button

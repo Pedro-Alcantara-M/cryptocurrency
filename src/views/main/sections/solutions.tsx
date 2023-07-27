@@ -10,8 +10,10 @@ export const SolutionSection = () => {
         justifyContent: "center",
         mt: "7,5em",
         pb: "8.125em",
-        background:
-          "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F7F7F7 100%)",
+        '& .MuiContainer-root': {
+          background:' linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F7F7F7 100%)'
+        }
+
       }}
     >
       <Box maxWidth="60%">

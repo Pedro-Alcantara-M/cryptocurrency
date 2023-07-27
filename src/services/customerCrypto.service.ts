@@ -1,15 +1,16 @@
 import { api } from "@services/api";
-import { IUsersResp, IUser, ICreateUserResp } from "./interface";
+import { ICoinResp, ICoin } from "./interface";
 
 
-export const getUsersRequest = async (): Promise<IUsersResp> => {
-  const resp: IUsersResp = {
+
+export const getCustomerCryptoRequest = async (): Promise<ICoinResp> => {
+  const resp: ICoinResp = {
     data: null,
     status: null,
   };
 
   return api
-    .get<IUser[]>("users/")
+    .get<ICoin[]>("customerCrypto")
     .then((preResp) => {
       resp.data = preResp.data;
       resp.status = preResp.status;
@@ -24,17 +25,14 @@ export const getUsersRequest = async (): Promise<IUsersResp> => {
     });
 };
 
-export const createUser = (body?: IUser | null): Promise<ICreateUserResp> => {
-  const resp: ICreateUserResp = {
+export const createCustomerCrypto = (body?: ICoin | null): Promise<ICoinResp> => {
+  const resp: ICoinResp = {
     data: null,
     status: null,
   };
 
   return api
-    .post("users/", {
-      photo: "https://xsgames.co/randomusers/avatar.php?g=male",
-      ...body,
-    })
+    .post("customerCrypto", body)
     .then((preResp) => {
       resp.data = preResp.data;
       resp.status = preResp.status;
@@ -49,14 +47,14 @@ export const createUser = (body?: IUser | null): Promise<ICreateUserResp> => {
     });
 };
 
-export const updateUser = (id?: number, body?: IUser | null): Promise<ICreateUserResp> => {
-  const resp: ICreateUserResp = {
+export const updateCustomerCrypto = (id?: string, body?: ICoin | null): Promise<ICoinResp> => {
+  const resp: ICoinResp = {
     data: null,
     status: null,
   };
 
   return api
-    .put(`users/${id}`, body)
+    .put(`customerCrypto/${id}`, body)
     .then((preResp) => {
       resp.data = preResp.data;
       resp.status = preResp.status;
@@ -71,14 +69,14 @@ export const updateUser = (id?: number, body?: IUser | null): Promise<ICreateUse
     });
 };
 
-export const updateUserCrypto = (id?: number, body?: IUser | null): Promise<ICreateUserResp> => {
-  const resp: ICreateUserResp = {
+export const deleteCustomerCrypto = (id?: string): Promise<ICoinResp> => {
+  const resp: ICoinResp = {
     data: null,
     status: null,
   };
 
   return api
-    .patch(`users/${id}`, body)
+    .delete(`customerCrypto/${id}`)
     .then((preResp) => {
       resp.data = preResp.data;
       resp.status = preResp.status;
@@ -92,4 +90,3 @@ export const updateUserCrypto = (id?: number, body?: IUser | null): Promise<ICre
       return resp;
     });
 };
-

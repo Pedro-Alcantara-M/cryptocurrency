@@ -28,6 +28,7 @@ import graphicIcon from "@assets/graphicIcon.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { CardSection } from "./sections/cards";
+import { TableSection } from "./sections/table";
 
 const DashboardView = () => {
   const theme = useTheme();
@@ -199,8 +200,9 @@ const DashboardView = () => {
         >
           {sideMenuContent()}
         </Drawer>
-        <Box sx={{ ml: isOpen ? "5em" : 0 }}>
+        <Box sx={{ ml: isOpen ? "5em" : 0, p: '0 4.32em' }}>
           <CardSection />
+          <TableSection />
         </Box>
       </Box>
       <Box

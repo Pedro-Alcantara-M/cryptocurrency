@@ -31,27 +31,27 @@
   } */
 
 export interface ICoin {
-  [x: string]: any;
+  id?: string;
+  symbol?: string;
   name?: string;
   image?: string;
-  symbol?: string;
-  current_price?: number;
-  market_cap_change_percentage_24h?: number;
+  price?: number;
+  change?: number;
+  amount?: number
 }
 
 export interface ICoinResp {
-  data: ICoin | null;
+  data: ICoin[] | null;
   status: number | null;
 }
 
 export interface CryptoData {
-  asset_id?: string;
+  id?: string;
+  symbol?: string;
   name?: string;
+  image?: string;
   price?: number;
   change?: number;
-  id_icon?: string;
-  volume_1day_usd: number;
-  price_usd?: number;
 }
 
 export interface IUser {
@@ -60,6 +60,7 @@ export interface IUser {
   email?: string;
   password?: string;
   photo?: string;
+  customerCrypto: ICoin[] | [];
 }
 
 export interface ILoginResp {

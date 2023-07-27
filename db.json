@@ -2,17 +2,147 @@
   "users": [
     {
       "id": 1,
-      "name": "Test user",
+      "photo": "https://xsgames.co/randomusers/avatar.php?g=male",
+      "name": "test1",
       "email": "email@email.com",
       "password": "123456",
-      "photo": "https://xsgames.co/randomusers/avatar.php?g=male"
+      "customerCrypto": [
+        {
+          "id": "bitcoin",
+          "symbol": "btc",
+          "name": "Bitcoin",
+          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+          "price": 29313,
+          "change": 0.20177,
+          "amount": 510
+        },
+        {
+          "id": "ethereum",
+          "symbol": "eth",
+          "name": "Ethereum",
+          "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
+          "price": 1860.69,
+          "change": -0.03638,
+          "amount": 250
+        },
+        {
+          "id": "tether",
+          "symbol": "usdt",
+          "name": "Tether",
+          "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1668148663",
+          "price": 1,
+          "change": 0.10663,
+          "amount": 50
+        },
+        {
+          "id": "ripple",
+          "symbol": "xrp",
+          "name": "XRP",
+          "image": "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731",
+          "price": 0.709013,
+          "change": 0.8021,
+          "amount": 144
+        },
+        {
+          "id": "usd-coin",
+          "symbol": "usdc",
+          "name": "USD Coin",
+          "image": "https://assets.coingecko.com/coins/images/6319/large/USD_Coin_icon.png?1547042389",
+          "price": 1,
+          "change": -0.40651,
+          "amount": 111
+        }
+      ]
     },
     {
+      "id": 2,
       "photo": "https://xsgames.co/randomusers/avatar.php?g=male",
       "name": "test1",
       "email": "email1@email.com",
       "password": "123456",
-      "id": 2
+      "customerCrypto": []
+    }
+  ],
+  "crypto": [
+    {
+      "id": "bitcoin",
+      "symbol": "btc",
+      "name": "Bitcoin",
+      "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+      "price": 29313,
+      "change": 0.20177
+    },
+    {
+      "id": "ethereum",
+      "symbol": "eth",
+      "name": "Ethereum",
+      "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
+      "price": 1860.69,
+      "change": -0.03638
+    },
+    {
+      "id": "tether",
+      "symbol": "usdt",
+      "name": "Tether",
+      "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1668148663",
+      "price": 1,
+      "change": 0.10663
+    },
+    {
+      "id": "ripple",
+      "symbol": "xrp",
+      "name": "XRP",
+      "image": "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731",
+      "price": 0.709013,
+      "change": 0.8021
+    },
+    {
+      "id": "binancecoin",
+      "symbol": "bnb",
+      "name": "BNB",
+      "image": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1644979850",
+      "price": 237.7,
+      "change": -1.40525
+    },
+    {
+      "id": "usd-coin",
+      "symbol": "usdc",
+      "name": "USD Coin",
+      "image": "https://assets.coingecko.com/coins/images/6319/large/USD_Coin_icon.png?1547042389",
+      "price": 1,
+      "change": -0.40651
+    },
+    {
+      "id": "staked-ether",
+      "symbol": "steth",
+      "name": "Lido Staked Ether",
+      "image": "https://assets.coingecko.com/coins/images/13442/large/steth_logo.png?1608607546",
+      "price": 1859.12,
+      "change": 0.02833
+    },
+    {
+      "id": "dogecoin",
+      "symbol": "doge",
+      "name": "Dogecoin",
+      "image": "https://assets.coingecko.com/coins/images/5/large/dogecoin.png?1547792256",
+      "price": 0.078925,
+      "change": -3.4156
+    },
+    {
+      "id": "cardano",
+      "symbol": "ada",
+      "name": "Cardano",
+      "image": "https://assets.coingecko.com/coins/images/975/large/cardano.png?1547034860",
+      "price": 0.306046,
+      "change": 0.41253
+    },
+    {
+      "id": "solana",
+      "symbol": "sol",
+      "name": "Solana",
+      "image": "https://assets.coingecko.com/coins/images/4128/large/solana.png?1640133422",
+      "price": 24.76,
+      "change": 6.07849
     }
   ]
 }

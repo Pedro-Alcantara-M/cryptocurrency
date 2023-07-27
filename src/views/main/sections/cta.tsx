@@ -7,7 +7,7 @@ export const CTASection = () => {
   const theme = useTheme()
   const labels = ["Cryptos", "NFTs", "Games"];
   return (
-    <Container sx={{display: 'flex', mb: '3.5em' }}>
+    <Container sx={{display: 'flex', pb: '3.5em', backgroundColor: 'white' }}>
       <Box maxWidth="50%"  mt="10em">
         <Typography variant="h1" sx={{ fontWeight: "bold", color: `${theme.palette.primary.main} !important` }}>
           Lorem ipsum dolor sit amet, consectetur

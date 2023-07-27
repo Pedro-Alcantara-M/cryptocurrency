@@ -1,4 +1,4 @@
-import {apiUsers} from "@services/api";
+import {api} from "@services/api";
 import { ILoginResp, IUser } from "./interface";
 
 type IParams= {
@@ -13,7 +13,7 @@ export const loginRequest = async (params: IParams): Promise<ILoginResp> => {
     status: null,
   };
 
-  return apiUsers
+  return api
     .get<IUser[]>(
       "users/",
       {params}

@@ -7,9 +7,9 @@ const DashboardView = lazy(() => import("@views/dashboard"));
 const Router = () => {
   const PrivateRoute = ({ children }: any) => {
     const isLogged = localStorage.getItem("isLogged");
+console.log(isLogged)
     return isLogged ? children : <Navigate to={"/"} />;
   };
-
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />

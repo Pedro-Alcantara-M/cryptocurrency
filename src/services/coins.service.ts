@@ -1,4 +1,4 @@
-import { apiCoin } from "@services/api";
+import { api } from "@services/api";
 import { ICoinResp, CryptoData } from "./interface";
 
 export const getCoins = async (params: {
@@ -9,8 +9,8 @@ export const getCoins = async (params: {
     status: null,
   };
 
-  return apiCoin
-    .get<CryptoData[]>("coins/markets", { params })
+  return api
+    .get<CryptoData[]>("crypto", { params })
     .then((preResp) => {
       resp.data = preResp.data;
       resp.status = preResp.status;

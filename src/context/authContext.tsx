@@ -5,12 +5,14 @@ import { IUser } from "@services/interface";
 
 interface AuthContextProps {
   login: (currentUser: IUser) => void;
+  storeUser: (currentUser: IUser) => void;
   logout: () => void;
   user: IUser | null
 }
 
 export const AuthContext = createContext<AuthContextProps>({
   login: () => {},
+  storeUser: () => {},
   logout: () => {},
   user: null
 });
@@ -30,8 +32,12 @@ export const AuthProvider = (props: { children: ReactNode }) => {
     navigate("/");
   };
 
+  const storeUser = (currentUser: IUser) => {
+    setUser(currentUser)
+  };
+
   return (
-    <AuthContext.Provider value={{ login, logout, user }}>
+    <AuthContext.Provider value={{ login, logout, user, storeUser }}>
       {props.children}
     </AuthContext.Provider>
   );
