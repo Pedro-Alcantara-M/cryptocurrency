@@ -41,7 +41,7 @@
           "image": "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731",
           "price": 0.709013,
           "change": 0.8021,
-          "amount": 144
+          "amount": 244
         },
         {
           "id": "usd-coin",
@@ -51,6 +51,15 @@
           "price": 1,
           "change": -0.40651,
           "amount": 111
+        },
+        {
+          "id": "binancecoin",
+          "symbol": "bnb",
+          "name": "BNB",
+          "image": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1644979850",
+          "price": 237.7,
+          "change": -1.40525,
+          "amount": 500
         }
       ]
     },
@@ -61,6 +70,20 @@
       "email": "email1@email.com",
       "password": "123456",
       "customerCrypto": []
+    }
+  ],
+  "subscribe": [
+    {
+      "id": 1,
+      "email": "test@email.com"
+    },
+    {
+      "email": "test1@email.com",
+      "id": 2
+    },
+    {
+      "email": "test2@email.com",
+      "id": 3
     }
   ],
   "crypto": [

@@ -77,3 +77,8 @@ export interface ICreateUserResp {
   data: IUser | null;
   status: number | null;
 }
+
+export interface ICreateSubscribeResp {
+  data: string | null;
+  status: number | null;
+}

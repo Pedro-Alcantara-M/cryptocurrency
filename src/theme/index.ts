@@ -52,6 +52,15 @@ interface CustomTheme extends PaletteOptions {
     };
   };
   typography: TypographyVariantsOptions;
+  breakpoints: {
+    values: {
+      xs: number;
+      sm: number;
+      md: number;
+      lg: number;
+      xl: number;
+    },
+  },
 }
 
 const themeOptions: CustomTheme = {
@@ -139,6 +148,15 @@ const themeOptions: CustomTheme = {
         fontSize: '0.75em',
         lineHeight: 0.875,
         letterSpacing: '0px',
+      },
+    },
+    breakpoints: {
+      values: {
+        xs: 320,
+        sm: 600,
+        md: 768,
+        lg: 1200,
+        xl: 1440,
       },
     },
   };

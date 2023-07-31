@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { Grid, Box, IconButton, Typography } from "@mui/material";
+import { Grid, Box, IconButton, Typography, Button } from "@mui/material";
 import { GeneralContext } from "@src/context/generalContext";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import balanceIcon from "@assets/balance.svg";
 import cardGraphic from "@assets/cardgraphic.svg";
 import elephant from "@assets/elephant.svg";
@@ -8,26 +9,30 @@ import theme from "@src/theme";
 
 export const CardSection = () => {
   const { coins } = useContext(GeneralContext);
+  const tablet = useMediaQuery(`(max-width: 770px)`);
   return (
     <Grid container sx={{ mt: "3.5em" }} columnSpacing={4}>
-      <Grid item container xs={6} sx={{}}>
+      <Grid item container xs={12} md={12} lg={6}>
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
             width: "50%",
-            height: "7em",
+            height: { lg: "7em", md: "4em", sm: "4em", xs: "4em" },
             backgroundColor: "white",
             borderRadius: "8px 0px 0px 8px",
             boxShadow: "0px 8px 16px 0px rgba(0, 0, 0, 0.1)",
           }}
         >
           <IconButton
-            sx={{ backgroundColor: "primary.100", m: "1.5em 1em 1.5em 1.5em " }}
+            sx={{
+              backgroundColor: "primary.100",
+              m: "1.5em 1em 1.5em 1.5em ",
+            }}
           >
             <img src={balanceIcon} alt="balance icon" />
           </IconButton>
-          <Typography variant="h4">
+          <Typography variant={tablet ? "subtitle1" : "h4"}>
             Balance in US$
             <Typography
               variant="subtitle2"
@@ -43,29 +48,41 @@ export const CardSection = () => {
             justifyContent: "center",
             alignItems: "center",
             width: "50%",
-            height: "7em",
+            height: { lg: "7em", md: "4em" },
             backgroundColor: "primary.100",
             borderRadius: "0px 8px 8px 0px",
             boxShadow: "0px 8px 16px 0px rgba(0, 0, 0, 0.1)",
           }}
         >
-          <Typography variant="h3" sx={{ fontWeight: 700 }}>
+          <Typography
+            variant={tablet ? "body1" : "h3"}
+            sx={{ fontWeight: 700 }}
+          >
             $32,256.56
           </Typography>
         </Box>
       </Grid>
 
-      <Grid item container xs={6} columnSpacing={4}>
-        <Grid item container xs={6}>
+      <Grid
+        item
+        container
+        xs={12}
+        sm={12}
+        md={12}
+        lg={6}
+        columnSpacing={4}
+        sx={{mt: { xs: 3, sm: 3, md: 3, lg: 0, xl: 0 }, }}
+      >
+        <Grid item container xs={6} sx={{display: 'flex', flexDirection: tablet ? 'column' : 'row'}}>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              width: "33%",
+              width: tablet ? '100%' : "33%",
               height: "7em",
               backgroundColor: "white",
-              borderRadius: "8px 0px 0px 8px",
+              borderRadius: tablet ? "8px 8px 0px 0px" : "8px 0px 0px 8px",
               boxShadow: "0px 8px 16px 0px rgba(0, 0, 0, 0.1)",
             }}
           >
@@ -111,10 +128,10 @@ export const CardSection = () => {
             sx={{
               display: "flex",
               alignItems: "center",
-              width: "66%",
+              width: tablet ? '100%' : "66%",
               height: "7em",
               backgroundColor: "white",
-              borderRadius: "0px 8px 8px 0px",
+              borderRadius: "0px 0px 8px 8px",
             }}
           >
             <img src={cardGraphic} alt="card graphics" width="100%" />
@@ -125,9 +142,9 @@ export const CardSection = () => {
           <Box
             sx={{
               height: "7em",
-              maxWidth: "50%",
+              width: tablet ? '100%' : "50%",
               backgroundColor: "white",
-              borderRadius: "8px 0px 0px 8px",
+              borderRadius: tablet ? "8px 8px 0px 0px" : "8px 0px 0px 8px",
             }}
           >
             <Typography
@@ -139,15 +156,27 @@ export const CardSection = () => {
             <Typography variant="subtitle2" sx={{ p: "0 1em 0 1em" }}>
               New ElephantX NFT to be lauched!
             </Typography>
+            
+          {!tablet && (
+            <Button
+              variant="text"
+              sx={{
+                textTransform: "none",
+                color: `${theme.palette.primary.main} !important`,
+              }}
+            >
+              Read more +
+            </Button>
+          )}
           </Box>
           <Box
             sx={{
               display: "flex",
               justifyContent: "flex-end",
               height: "7em",
-              width: "50%",
+              width: tablet ? '100%' : "50%",
               backgroundColor: "white",
-              borderRadius: "0px 8px 8px 0px",
+              borderRadius:  tablet ? "0px 0px 8px 8px" : "0px 8px 8px 0px",
               backgroundImage: `url(${elephant})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",

@@ -4,7 +4,6 @@ import {
   SetStateAction,
   FormEvent,
   ChangeEvent,
-  useEffect,
   useContext,
 } from "react";
 import {
@@ -23,7 +22,6 @@ import { updateUserCrypto } from "@src/services/users.service";
 import { CloseOutlined } from "@mui/icons-material";
 import { ICoin } from "@src/services/interface";
 import { AuthContext } from "@src/context/authContext";
-import { GeneralContext } from "@src/context/generalContext";
 
 type ITransfer = { type?: string; amount?: number };
 
@@ -51,7 +49,7 @@ export const TransferCryptoModal = (props: {
     const cryptoIndex = userCustomerCrypto.findIndex(
       (crypto) => crypto.id === currentCoinId
     );
-    
+
     const operation =
       type === "transfer_in"
         ? {
@@ -84,7 +82,7 @@ export const TransferCryptoModal = (props: {
           ]
         : [...userCustomerCrypto, currentCrypto];
 
-   const validatedUpdatedCrypto =  updatedCustomerCrypto.filter((item) => (item?.amount || 0) >= 0);
+   const validatedUpdatedCrypto =  updatedCustomerCrypto.filter((item) => (item?.amount || 0) > 0);
 
     const response = await updateUserCrypto(user?.id, {
       customerCrypto: validatedUpdatedCrypto,
@@ -100,10 +98,6 @@ export const TransferCryptoModal = (props: {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setBody((state) => ({ ...state, amount: Number(e.target.value) }));
   };
-
-  useEffect(() => {
-    props.setIsSuccess(false);
-  }, []);
 
   return (
     <Modal

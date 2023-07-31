@@ -13,6 +13,7 @@ export const StyledTableCell = styled(TableCell)(({ theme }) => ({
   }));
   
 export const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  width: '100%',
 '&:nth-of-type(even)': {
     backgroundColor: theme.palette.action.hover,
 },

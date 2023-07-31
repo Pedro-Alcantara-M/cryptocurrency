@@ -1,16 +1,15 @@
 import { api } from "@services/api";
-import { ICoinResp, CryptoData } from "./interface";
+import { ICreateSubscribeResp } from "./interface";
 
-export const getCoins = async (params: {
-  _limit: number;
-}): Promise<ICoinResp> => {
-  const resp: ICoinResp = {
+
+export const addSubscribe = (email?: string | null): Promise<ICreateSubscribeResp> => {
+  const resp: ICreateSubscribeResp = {
     data: null,
     status: null,
   };
 
   return api
-    .get<CryptoData[]>("crypto", { params })
+    .post("subscribe/", {email: email})
     .then((preResp) => {
       resp.data = preResp.data;
       resp.status = preResp.status;
