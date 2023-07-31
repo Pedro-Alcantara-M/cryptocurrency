@@ -17,7 +17,7 @@ A LandingPage é a tela inicial do projeto de Crypto Moedas. Ela possui os segui
 
 - **Tabela de Crypto moedas:** Exibe uma tabela listando os detalhes das principais criptomoedas, como nome, símbolo, preço atual, variação percentual, etc.
 
-![Captura de tela de 2023-07-31 08-37-15](https://github.com/Pedro-Alcantara-M/cryptocurrency/assets/landingPage.png)
+<img src="/assets/landingPage.png">
 
 ### Dashboard
 
@@ -29,7 +29,7 @@ O Dashboard é uma tela de visualização detalhada das Crypto moedas. Ele possu
 
 - **Modal para transferências de crypto moedas com depósito e saque:** Permite que o usuário realize transferências de criptomoedas entre contas, seja para depósito ou saque.
 
-![Captura de tela de 2023-07-31 08-36-44](https://github.com/Pedro-Alcantara-M/cryptocurrency/assets/dashboard.png)
+<img src="/assets/dashboard.png">
 
 ## Tecnologias Utilizadas
 
