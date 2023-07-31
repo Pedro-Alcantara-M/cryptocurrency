@@ -33,14 +33,14 @@ export const SolutionSection = (props: {
           flexDirection: smallScreen ? "row" : "column",
           justifyContent: "center",
           alignItems: "center",
-          overflowX: smallScreen ? 'scroll' : 'visible',
+          overflowX: smallScreen ? "scroll" : "visible",
         }}
       >
         <Box
           display="flex"
           gap="2em"
           mb={smallScreen ? 0 : "2em"}
-          mt={smallDesktop ? smallScreen ? 0 : "8em" : 0}
+          mt={smallDesktop ? (smallScreen ? 0 : "8em") : 0}
         >
           <Box
             sx={{
@@ -105,7 +105,11 @@ export const SolutionSection = (props: {
           </Box>
         </Box>
 
-        <Box display="flex" gap={smallScreen ? '1em' : "2em"} ml={smallScreen ? '16px' :"120px"}>
+        <Box
+          display="flex"
+          gap={smallScreen ? "1em" : "2em"}
+          ml={smallScreen ? "16px" : "120px"}
+        >
           <Box
             sx={{
               width: "220px",
@@ -175,12 +179,12 @@ export const SolutionSection = (props: {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          maxWidth: smallDesktop ?  smallScreen ? "100%" : "70%" : "40%",
+          maxWidth: smallDesktop ? (smallScreen ? "100%" : "70%") : "40%",
           height: "15em",
           pl: smallScreen ? "0.5em" : "2em",
           visibility: "visible",
           position: "relative",
-          gap: smallScreen ? '1em' : 0
+          gap: smallScreen ? "1em" : 0,
         }}
       >
         <Typography

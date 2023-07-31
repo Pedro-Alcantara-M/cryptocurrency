@@ -71,15 +71,20 @@ export const CardSection = () => {
         md={12}
         lg={6}
         columnSpacing={4}
-        sx={{mt: { xs: 3, sm: 3, md: 3, lg: 0, xl: 0 }, }}
+        sx={{ mt: { xs: 3, sm: 3, md: 3, lg: 0, xl: 0 } }}
       >
-        <Grid item container xs={6} sx={{display: 'flex', flexDirection: tablet ? 'column' : 'row'}}>
+        <Grid
+          item
+          container
+          xs={6}
+          sx={{ display: "flex", flexDirection: tablet ? "column" : "row" }}
+        >
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              width: tablet ? '100%' : "33%",
+              width: tablet ? "100%" : "33%",
               height: "7em",
               backgroundColor: "white",
               borderRadius: tablet ? "8px 8px 0px 0px" : "8px 0px 0px 8px",
@@ -128,7 +133,7 @@ export const CardSection = () => {
             sx={{
               display: "flex",
               alignItems: "center",
-              width: tablet ? '100%' : "66%",
+              width: tablet ? "100%" : "66%",
               height: "7em",
               backgroundColor: "white",
               borderRadius: "0px 0px 8px 8px",
@@ -142,7 +147,7 @@ export const CardSection = () => {
           <Box
             sx={{
               height: "7em",
-              width: tablet ? '100%' : "50%",
+              width: tablet ? "100%" : "50%",
               backgroundColor: "white",
               borderRadius: tablet ? "8px 8px 0px 0px" : "8px 0px 0px 8px",
             }}
@@ -156,27 +161,27 @@ export const CardSection = () => {
             <Typography variant="subtitle2" sx={{ p: "0 1em 0 1em" }}>
               New ElephantX NFT to be lauched!
             </Typography>
-            
-          {!tablet && (
-            <Button
-              variant="text"
-              sx={{
-                textTransform: "none",
-                color: `${theme.palette.primary.main} !important`,
-              }}
-            >
-              Read more +
-            </Button>
-          )}
+
+            {!tablet && (
+              <Button
+                variant="text"
+                sx={{
+                  textTransform: "none",
+                  color: `${theme.palette.primary.main} !important`,
+                }}
+              >
+                Read more +
+              </Button>
+            )}
           </Box>
           <Box
             sx={{
               display: "flex",
               justifyContent: "flex-end",
               height: "7em",
-              width: tablet ? '100%' : "50%",
+              width: tablet ? "100%" : "50%",
               backgroundColor: "white",
-              borderRadius:  tablet ? "0px 0px 8px 8px" : "0px 8px 8px 0px",
+              borderRadius: tablet ? "0px 0px 8px 8px" : "0px 8px 8px 0px",
               backgroundImage: `url(${elephant})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",

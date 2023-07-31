@@ -1,4 +1,11 @@
-import { useState, Dispatch, SetStateAction, ChangeEvent, FormEvent, useContext } from "react";
+import {
+  useState,
+  Dispatch,
+  SetStateAction,
+  ChangeEvent,
+  FormEvent,
+  useContext,
+} from "react";
 import { loginRequest } from "@services/login.service";
 import { AuthContext } from "@src/context/authContext";
 import {
@@ -23,14 +30,15 @@ import {
 export const SignInModal = (props: {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
+  setIsSignUp: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const { login } = useContext(AuthContext)
-  const theme = useTheme()
+  const { login } = useContext(AuthContext);
+  const theme = useTheme();
   const [loginBody, setLoginBody] = useState<{
     email: string;
     password: string;
   }>({ email: "", password: "" });
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClose = () => {
@@ -38,22 +46,21 @@ export const SignInModal = (props: {
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setError(false)
-    setLoginBody((state) => ({...state, [e.target.name]: e.target.value}))
+    setError(false);
+    setLoginBody((state) => ({ ...state, [e.target.name]: e.target.value }));
   };
 
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
     const response = await loginRequest(loginBody);
-  
+
     if (response.status === 200 && response.data && response.data.length > 0) {
-      login(response.data[0])
+      login(response.data[0]);
       props.setOpen(false);
-      setError(false)
-    
+      setError(false);
     }
 
-    setError(true)
+    setError(true);
   };
 
   return (
@@ -62,7 +69,11 @@ export const SignInModal = (props: {
       onClose={handleClose}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
-      sx={{ maxWidth: "28em", maxHeight: error ? "24em" :  "23.44em", margin: "auto" }}
+      sx={{
+        maxWidth: "28em",
+        maxHeight: error ? "24em" : "23.44em",
+        margin: "auto",
+      }}
     >
       <Container
         component="form"
@@ -218,26 +229,35 @@ export const SignInModal = (props: {
         >
           {"Sign In"}
         </Button>
-        <Typography variant="subtitle1" sx={{ display: "flex", mt: "1.5em" }}>
-          {"Don’t have an account?"}{" "}
-          <Typography
-            variant="subtitle1"
-            sx={{ display: "flex", mt: "0.2em", ml: "0.5em" }}
-          >
-            Sign in to{" "}
+        <Button
+          type="button"
+          sx={{ textTransform: "none" }}
+          onClick={() => {
+            props.setIsSignUp(true);
+            props.setOpen(false);
+          }}
+        >
+          <Typography variant="subtitle1" sx={{ display: "flex", mt: "1.5em" }}>
+            {"Don’t have an account?"}{" "}
             <Typography
-              sx={{
-                ml: "0.2em",
-                fontWeight: "bold",
-                mt: "0.1em",
-                color: `${theme.palette.primary.main} !important`,
-              }}
+              variant="subtitle1"
+              sx={{ display: "flex", mt: "0.2em", ml: "0.5em" }}
             >
-              Coin
+              Sign in to{" "}
+              <Typography
+                sx={{
+                  ml: "0.2em",
+                  fontWeight: "bold",
+                  mt: "0.1em",
+                  color: `${theme.palette.primary.main} !important`,
+                }}
+              >
+                Coin
+              </Typography>
+              <strong>Synch</strong>
             </Typography>
-            <strong>Synch</strong>
           </Typography>
-        </Typography>
+        </Button>
       </Container>
     </Modal>
   );

@@ -5,7 +5,6 @@ import {
   FormEvent,
   ChangeEvent,
   useContext,
-  useEffect,
 } from "react";
 import {
   Container,
@@ -57,10 +56,6 @@ export const AddCryptoModal = (props: {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setBody((state) => ({ ...state, [e.target.name]: Number(e.target.value) }));
   };
-
-  useEffect(() => {
-    props.setIsSuccess(false);
-  }, []);
 
   return (
     <Modal

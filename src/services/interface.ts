@@ -60,7 +60,7 @@ export interface IUser {
   email?: string;
   password?: string;
   photo?: string;
-  customerCrypto: ICoin[] | [];
+  customerCrypto?: ICoin[] | [];
 }
 
 export interface ILoginResp {

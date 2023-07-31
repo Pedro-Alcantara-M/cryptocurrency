@@ -32,13 +32,17 @@ import { validateEmail } from "@src/utils";
 export const SignUpModal = (props: {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
+  setIsSignIn: Dispatch<SetStateAction<boolean>>;
 }) => {
   const theme = useTheme();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [error, setError] = useState<{wrongPassword: boolean, invalidEmail: boolean}>({
+  const [error, setError] = useState<{
+    wrongPassword: boolean;
+    invalidEmail: boolean;
+  }>({
     wrongPassword: false,
-    invalidEmail: false
+    invalidEmail: false,
   });
   const [body, setBody] = useState<IUser | null>(null);
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -50,12 +54,12 @@ export const SignUpModal = (props: {
   const handleOnSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    if(!validateEmail(body?.email)){
+    if (!validateEmail(body?.email)) {
       return setError((state) => ({ ...state, invalidEmail: true }));
     }
 
-    if(body?.password !== confirmPassword){
-     return setError((state) => ({ ...state, wrongPassword: true }));
+    if (body?.password !== confirmPassword) {
+      return setError((state) => ({ ...state, wrongPassword: true }));
     }
 
     const response = await createUser(body);
@@ -64,17 +68,16 @@ export const SignUpModal = (props: {
       props.setOpen(false);
       setError({
         wrongPassword: false,
-        invalidEmail: false
-      })
+        invalidEmail: false,
+      });
     }
-    
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setError({
       wrongPassword: false,
-      invalidEmail: false
-    })
+      invalidEmail: false,
+    });
     setBody((state) => ({ ...state, [e.target.name]: e.target.value }));
   };
 
@@ -330,26 +333,33 @@ export const SignUpModal = (props: {
         >
           {"Sign Up"}
         </Button>
-        <Typography variant="subtitle1" sx={{ display: "flex", mt: "1.5em" }}>
-          {" Already have and account?"}{" "}
-          <Typography
-            variant="subtitle1"
-            sx={{ display: "flex", mt: "0.2em", ml: "0.5em" }}
-          >
-            <strong>Sign in to</strong>{" "}
+
+        <Button type="button" sx={{ textTransform: "none" }} onClick={() => {
+          props.setOpen(false)
+          props.setIsSignIn(true)
+          
+        }}>
+          <Typography variant="subtitle1" sx={{ display: "flex", mt: "1.5em" }}>
+            {" Already have and account?"}{" "}
             <Typography
-              sx={{
-                ml: "0.2em",
-                fontWeight: "bold",
-                mt: "0.1em",
-                color: `${theme.palette.primary.main} !important`,
-              }}
+              variant="subtitle1"
+              sx={{ display: "flex", mt: "0.2em", ml: "0.5em" }}
             >
-              Coin
+              <strong>Sign in to</strong>{" "}
+              <Typography
+                sx={{
+                  ml: "0.2em",
+                  fontWeight: "bold",
+                  mt: "0.1em",
+                  color: `${theme.palette.primary.main} !important`,
+                }}
+              >
+                Coin
+              </Typography>
+              <strong>Synch</strong>
             </Typography>
-            <strong>Synch</strong>
           </Typography>
-        </Typography>
+        </Button>
       </Container>
     </Modal>
   );

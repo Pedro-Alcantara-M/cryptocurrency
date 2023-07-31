@@ -277,6 +277,9 @@ const DashboardView = () => {
         >
           {sideMenuContent()}
         </Drawer>
+
+        {/* main content  */}
+
         <Box
           sx={{
             ml: isOpen ? "5em" : 0,
@@ -288,6 +291,8 @@ const DashboardView = () => {
           <CardSection />
           <TableSection />
         </Box>
+
+        {/* main content  */}
       </Box>
       <Box
         sx={{

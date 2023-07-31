@@ -127,13 +127,12 @@ export const TableSection = () => {
               m: "2em",
               color: "white !important",
               boxShadow: "none",
-              '&:hover': {
+              "&:hover": {
                 background: theme.palette.primary.main,
-              }
-          
+              },
             }}
           >
-            <AddIcon sx={{ fontSize: "0.8em"}} />
+            <AddIcon sx={{ fontSize: "0.8em" }} />
           </IconButton>
         )}
       </Box>

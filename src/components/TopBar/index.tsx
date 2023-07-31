@@ -14,7 +14,6 @@ import {
   Button,
   Link,
   useTheme,
-  IconButton,
   Menu,
   MenuItem,
 } from "@mui/material";
@@ -297,13 +296,18 @@ export const TopBar = (props: {
           </Box>
 
           {isSignInOpen && (
-            <SignInModal open={isSignInOpen} setOpen={setIsSignInOpen} />
+            <SignInModal
+              open={isSignInOpen}
+              setOpen={setIsSignInOpen}
+              setIsSignUp={props.setIsSignUpOpen}
+            />
           )}
 
           {props.isSignUpOpen && (
             <SignUpModal
               open={props.isSignUpOpen}
               setOpen={props.setIsSignUpOpen}
+              setIsSignIn={setIsSignInOpen}
             />
           )}
         </Box>

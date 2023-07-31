@@ -34,7 +34,7 @@ const TopCryptoSection = () => {
   const [query, setQuery] = useState<{ _limit: number; isMore: boolean }>(
     INITIAL_QUERY
   );
-  const [isLoading, setIsLoading] = useState(false);
+  const [, setIsLoading] = useState(false);
   const [expandedRow, setExpandedRow] = useState<number | null>(null);
   const smallScreen = useMediaQuery(`(max-width:650px)`);
 
@@ -53,18 +53,21 @@ const TopCryptoSection = () => {
     return setQuery({ _limit: 4, isMore: true });
   };
 
-  const firstRender = async () => {
-    setIsLoading(true);
-    const response = await getCoins({ _limit: query._limit });
-
-    if (response && response.data) {
-      storeCoins(response.data);
-    }
-    setIsLoading(false);
-  };
+  
 
   useEffect(() => {
+    const firstRender = async () => {
+      setIsLoading(true);
+      const response = await getCoins({ _limit: query._limit });
+  
+      if (response && response.data) {
+        storeCoins(response.data);
+      }
+      setIsLoading(false);
+    };
+    
     firstRender();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   return (
@@ -89,18 +92,23 @@ const TopCryptoSection = () => {
         <Table sx={{ maxWidth: 1248, p: "2em" }} aria-label="customized table">
           <TableHead>
             {!smallScreen ? (
-            <TableRow>
-              {tableheaders.map((item) => 
-              <StyledTableCell key={item}>{item}</StyledTableCell>
-              )}
-            </TableRow>
+              <TableRow>
+                {tableheaders.map((item) => (
+                  <StyledTableCell key={item}>{item}</StyledTableCell>
+                ))}
+              </TableRow>
             ) : (
-              <Box sx={{display: 'flex', justifyContent: 'space-between', px: '40px'}}>
-                 <StyledTableCell>Crypto</StyledTableCell>
-                 <StyledTableCell>Actions</StyledTableCell>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  px: "40px",
+                }}
+              >
+                <StyledTableCell>Crypto</StyledTableCell>
+                <StyledTableCell>Actions</StyledTableCell>
               </Box>
             )}
-       
           </TableHead>
 
           <TableBody>
@@ -196,7 +204,11 @@ const TopCryptoSection = () => {
               }}
             >
               <AccordionSummary
-                expandIcon={<KeyboardArrowDownSharp sx={{color: 'primary.main', fontSize: '1.9em'}} />}
+                expandIcon={
+                  <KeyboardArrowDownSharp
+                    sx={{ color: "primary.main", fontSize: "1.9em" }}
+                  />
+                }
                 sx={{
                   height: "56px",
                   background:

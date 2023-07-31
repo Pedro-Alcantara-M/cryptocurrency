@@ -216,6 +216,7 @@ export const TransferCryptoModal = (props: {
           required
           value={body?.amount}
           onChange={handleChange}
+          InputProps={{ inputProps: { min: 0 } }}
           sx={{
             backgroundColor: "white",
             borderRadius: "8px",

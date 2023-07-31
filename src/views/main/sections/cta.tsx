@@ -69,6 +69,7 @@ export const CTASection = (props: {
       sx={{
         display: "flex",
         pb: "3.5em",
+        mt: '2em',
         backgroundColor: "white",
         overflowX: "hidden",
         maxWidth: "90em !important",
@@ -155,7 +156,7 @@ export const CTASection = (props: {
           display: smallScreen ? "none" : "flex",
           width: "50%",
           overflowX: "scroll",
-          '&::-webkit-scrollbar': { display: 'none' }
+          "&::-webkit-scrollbar": { display: "none" },
         }}
       >
         {carouselItems}

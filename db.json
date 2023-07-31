@@ -8,31 +8,13 @@
       "password": "123456",
       "customerCrypto": [
         {
-          "id": "bitcoin",
-          "symbol": "btc",
-          "name": "Bitcoin",
-          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-          "price": 29313,
-          "change": 0.20177,
-          "amount": 510
-        },
-        {
           "id": "ethereum",
           "symbol": "eth",
           "name": "Ethereum",
           "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
           "price": 1860.69,
           "change": -0.03638,
-          "amount": 250
-        },
-        {
-          "id": "tether",
-          "symbol": "usdt",
-          "name": "Tether",
-          "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1668148663",
-          "price": 1,
-          "change": 0.10663,
-          "amount": 50
+          "amount": 300
         },
         {
           "id": "ripple",
@@ -53,13 +35,22 @@
           "amount": 111
         },
         {
-          "id": "binancecoin",
-          "symbol": "bnb",
-          "name": "BNB",
-          "image": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1644979850",
-          "price": 237.7,
-          "change": -1.40525,
-          "amount": 500
+          "id": "staked-ether",
+          "symbol": "steth",
+          "name": "Lido Staked Ether",
+          "image": "https://assets.coingecko.com/coins/images/13442/large/steth_logo.png?1608607546",
+          "price": 1859.12,
+          "change": 0.02833,
+          "amount": 100
+        },
+        {
+          "id": "bitcoin",
+          "symbol": "btc",
+          "name": "Bitcoin",
+          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+          "price": 29313,
+          "change": 0.20177,
+          "amount": 200
         }
       ]
     },
